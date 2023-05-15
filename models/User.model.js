@@ -18,6 +18,14 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Name is required."],
     },
+    surname: {
+      type: String,
+      required: [true, "Name is required."],
+    },
+    profilePicture: {
+      type: String,
+      default: "./../images/defaultImage.png",
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
