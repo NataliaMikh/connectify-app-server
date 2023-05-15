@@ -22,3 +22,9 @@ router.post("/chatroom", (req, res, next) => {
       next(err);
     });
 });
+
+//get all messages
+
+router.get("/chatroom/");
+
+module.exports = router;
