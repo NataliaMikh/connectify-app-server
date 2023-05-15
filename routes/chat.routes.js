@@ -25,6 +25,16 @@ router.post("/chatroom", (req, res, next) => {
 
 //get all messages
 
-router.get("/chatroom/");
+router.get("/messages/:messageId", (req, res, next) => {
+  const { messageId } = req.params;
+  Message.find({ messageId })
+    .populate("sender")
+    .then((message) => {
+      res.json(message);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 module.exports = router;
