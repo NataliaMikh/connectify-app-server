@@ -1,7 +1,7 @@
 const app = require("./app");
 const { Server } = require("socket.io");
 const MessageModel = require("./models/Message.Model");
-
+const PORT = process.env.PORT || 5005;
 let myServer = app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
@@ -11,7 +11,6 @@ const io = new Server(myServer, {
   },
 });
 // ℹ️ Sets the PORT for our app to have access to it. If no env has been set, we hard code it to 5005
-const PORT = process.env.PORT || 5005;
 
 io.on("connection", (socket) => {
   console.log("a user connected");
